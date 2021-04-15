@@ -1,22 +1,36 @@
 |구성|전체강의|수강완료|정리완료|
-|:--:|:--:|:--:|:--:|
-|1.String & Array|20문제|1문제|0문제|
+|:--|:--:|:--:|:--:|
+|1.String & Array|20문제|3문제|3문제|
 |2.LinkedList|3문제|0문제|0문제|
 |3.Queue|3문제|0문제|0문제|
 |4.Graph(dfs&bfs)|12문제|0문제|0문제|
 |5.Dynamic Programming|4문제|0문제|0문제|
 |6.BackTacking|4문제|0문제|0문제|
-
+|총|46문제|0문제|0문제|
 
 
 # 1.String & Array
+## Tip 
+### 전략
+1. 문제를 정확히 이해
+2. 알고리즘 정하고 담을 그릇 정한다.
+3. for 문 돌리기
+
+
+### Map 개념
+1. Map + String(getOrDefault())
+2. Map + Array
+3. Map + Math.max
+4. Map + Set
+5. Map + Map
+6. Set + Set
 ### Meeting Room 1
 -  [x] 수행여부
 
 ### Move Zero 2
-- [ ] 수행여부
+- [x] 수행여부
 ### Two Sum 3
-- [ ] 수행여부
+- [x] 수행여부
 ### DailyTemperature 4
 - [ ] 수행여부
 
@@ -66,6 +80,8 @@
 
 
 # 2.LinkedLIst
+## Tip :
+
 ### AddTwoNumbers 1
 - [ ] 수행여부
 
@@ -76,6 +92,8 @@
 - [ ] 수행여부
 
 # 3.Queue
+## Tip :
+
 ### BaseballGame 1
 - [ ] 수행여부
 
@@ -90,6 +108,8 @@
 
 
 # 4. Graph(dfs & bfs)
+## Tip :
+
 ### NumberOfIsland_DFS 1
 - [ ] 수행여부
 
@@ -132,6 +152,8 @@
 - [ ] 수행여부
 
 # 5. Dynamic Programming 
+## Tip :
+
 ### UniquePaths 1
 - [ ] 수행여부
 
@@ -145,6 +167,7 @@
 - [ ] 수행여부
 
 # 6. BackTracking
+## Tip :
 
 ### GenerateParentheses 1
 - [ ] 수행여부
