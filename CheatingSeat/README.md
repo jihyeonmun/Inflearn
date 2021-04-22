@@ -22,12 +22,9 @@
 
 
 ## 문자열
-
 - 선언 : String str = "";
-
 - str.startWith(a); : 특정 문자로 시작하는지 판단
 - str.endWith(a); : 특정 문자로 끝나는지 판단
-
 - str.equals(a); : 같은지 아닌지 판단
 - str.indexOf("a"); : a가 몇번째 위치하는지 판단
 
