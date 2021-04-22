@@ -385,7 +385,7 @@ HEAP-EXTRACT-MAX(A)
   
 ### 정렬문제의 하한
 - 하한 (lower bound)
-  - 입력된 데이터를 한번씩 다 보기 위해서 최소 \theta(n)의 시간복잡도 필요
+  - 입력된 데이터를 한번씩 다 보기 위해서 최소 $$\theta(n)$$의 시간복잡도 필요
   - 합병정렬과 힙정렬 알고리즘들의 시간복잡도는 \theta(nlog~2~n)
   - 어떤 comparison sort 알고리즘도 \theta(nlog~2~n)보다 나을 수 없다.
   
