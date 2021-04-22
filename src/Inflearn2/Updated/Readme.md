@@ -196,12 +196,12 @@ Partition(A,p,r)
 
 ### 퀵정렬 최악의 경우
 - 항상 한쪽은 0개, 다른쪽은 n-1개로 분할되는 경우
-T(n) = $\theta(n^2^)$
+T(n) = \theta(n^2^)
 - 이미 정렬된 입력 데이터(마지막 원소를 피봇으로 선택하는 경우)
 
 ### 퀵정렬 최선의 경우
 - 항상 절반으로 분활되는 경우
-T(n) =$$ \theta(nlogn) $$
+T(n) =\theta(nlogn)
   
 ### 퀵정렬 - 1/10 정도 분할된다면?
 T(n) = O(nlog~10~n)
@@ -210,7 +210,7 @@ T(n) = O(nlog~10~n)
 
 ## 평균 시간 복잡도
 - 평균 혹은 기대값이란? 
-A(n) = $$ \sigma p(I)T(I)
+A(n) = \sigma p(I)T(I)
 - 그러나 확률인 p(I)는 미지수, 적절한 가정을 한 후 분석해야함.
 - 예 : 모든 입력 인스턴스가 동일한 확률을 가진다면
 p(I)= 1/n!
@@ -387,7 +387,7 @@ HEAP-EXTRACT-MAX(A)
 - 하한 (lower bound)
   - 입력된 데이터를 한번씩 다 보기 위해서 최소 \theta(n)의 시간복잡도 필요
   - 합병정렬과 힙정렬 알고리즘들의 시간복잡도는 \theta(nlog~2~n)
-  - 어떤 comparison sort 알고리즘도 $$ \theta(nlog~2~n)보다 나을 수 없다.
+  - 어떤 comparison sort 알고리즘도 \theta(nlog~2~n)보다 나을 수 없다.
   
 ### Decision Tree
 - 비교 기준에 따라서 상이한 정렬 결과를 만들어 낼수 있다. 
@@ -395,8 +395,7 @@ HEAP-EXTRACT-MAX(A)
 - n개인 경우 n!로 갖음. 왜냐하면 모든 순열(permutation)에 해당하므로
 - 최악의 경우 시간복잡도는 트리의 높이
 - 트리의 높이는 
-  - height >= log2n! = $$ \theta(nlog2n)$$
-
+  - height >= log2n! = \theta(nlog2n)
 ---
 
 ## 선형시간 정렬 알고리즘
@@ -433,7 +432,7 @@ No. 대부분의 경우 정렬할 key 값들은 레코드의 일부분이기 때
 ![counting sort](https://blog.kakaocdn.net/dn/dwEMEx/btqFyrq8zNC/cDzbSXP4yU8lBUgfVjS4Y0/img.png)
 
 ### 시간 복잡도
-- $$\theta(n+k)$$, 또는 $$\theta(n)$$ if k =o(n).
+- \theta(n+k), 또는 \theta(n) if k =o(n).
 - k가 클 경우 비 실용적
 - Stable 정렬 알고리즘
   - 입력은 동일한 값이 있을 때 입력에 먼저 나오는 값이 출력에서도 먼저 나온ㄷ
