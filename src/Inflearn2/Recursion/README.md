@@ -287,3 +287,255 @@ public static int binarySearch(String[] items, String target, int begin, int end
     }
 }
 ```
+
+--- 
+
+## 미로 찾기(Maze)
+![maze](maze.png)
+
+(NXM 행렬)
+
+### Recursive Thinking
+현재 위치에서 출구까지 가는 경로가 있으려면
+1. 현재 위치가 출구이거나 혹은
+2. 이웃한 셀들 중 하나에서 현재 위치를 지나지 않고 출구까지 가능 경로가 있거나
+
+### Decision Problem
+
+```java
+boolean findPath(x,y)
+    if(x,y) is the exit
+        return true;
+    else
+        for each neighbouring cell (x', y') of (x,y) do
+            if(x', y') is on the pathway
+                if findPath(x',y')
+                    return true;
+        return false;
+```
+
+```java
+boolean findPath(x,y)
+    if(x,y) is the exit
+        return true;
+    else
+        mark(x,y) as a visited cell;
+        for each neighbouring cell (x', y') of (x,y) do
+            if(x', y') is on the pathway
+                if findPath(x',y')
+                    return true;
+        return false;
+```
+
+```java
+boolean findPath(x,y)
+    if (x,y) is either on the wall or a visited cell
+        return false;
+    else if (x,y) is the exit
+        return true;
+    else
+        mark (x,y) as a visited cell;
+        for each neighbouring cell (x', y') of (x,y) do
+            if findPath(x' ,y')
+                return true;
+        return false;
+
+```
+[작성한 코드]()
+
+---
+## Counting Cells in a Blob
+
+- Binary 이미지
+- 각 픽셀은 background pixel이거나 혹은 image pixel
+- 서로연결된 Image pixele들의 집합을 blob이라고 부름
+- 상화좌우 및 대각방향으로도 연결된 것으로 간주
+
+##### 예시)
+![blob](blob.png)
+
+- 입력 :
+    - NXN 크기의 2차우너 그리드
+    - 하나의 좌표 (x,y)
+- 출력 :
+    - 픽셀 (x,y)가 포함된 blob의 크기,
+    - (x,y)가 어떤 Blob에도 속하지 않은 경우에는 0
+    
+### Recursive Thinking
+현재 픽셀이 속한 blob의 크기를 카운트하려면
+현재 픽셀이 image color가 아니라면 0을 반환한다
+현재 픽셀이 image color라면, 먼저 현재 픽셀을 카운트한다.
+현재 픽셀이 중복 카운트되는 것을 방지하기 위해 다른 색으로 칠한다.
+현재 픽셀에 이웃한 모든 픽셀들에 대해서 그 픽셀에 속한 blob의 크기를 카운트하여 카운터에 더해준다.
+카운터를 반환한다.
+
+1. 특정 셀을 가정, 즉 이 픽셀이 포함된 blob의 크기를 계산하는 것이 목적이다.(count = 0 -> 1)
+2. 먼저 현재 cell을 다른 색으로 칠하고 count를 1 증가한다. 이렇게 색칠하는 것은 이 픽셀이 중복 count 되는 것을 방지하기 위해서이다.
+3. 북쪽 픽셀이 포함된 blob의 크기는 0이다. 따라서 count 값은 변화 없다.
+   (8개의 방향으로 고려한다!)
+   
+
+```java
+if the pixel(x,y) is outside the grid
+    the result is 0;
+else if pixel(x,y) is not an image pixel or already counted
+    the result is 0;
+else
+    set the colour of the pixel (x,y) to a red colour;
+    the result is 1 plus the number of cells in each piece of 
+        the blob that includes a nearest neighbour;
+
+```
+
+[관련코드]()
+
+---
+
+## N-Queens
+- NXN개의 행렬에서 서로 인접하지 않는 배치를 찾는것
+- 이 경우 backtracking이 필요하다
+
+### 상태공간트리
+- 상태공간트리란 차즌ㄴ 해를 포함하는 트리
+- 즉 해가 존재한다면 그것은 반드시 이 트리의 어떤 한 노드에 해당함
+따라서 이 트리를 체계적으로 탐색하면 해를 구할 수 있음
+- 상태공간 트리의 모든 노드를 탐색해야 하는 것은 아님
+
+### Backtracking 
+- 상태공간 트리를 깊이 우선 방식으로 탐색하여 해를 찾는 알고리즘
+![back](backtracking.png)
+  [backtracking](http://blog.naver.com/PostView.nhn?blogId=jwo0816&logNo=221381468826&categoryNo=0&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView&userTopListOpen=true&userTopListCount=5&userTopListManageOpen=false&userTopListCurrentPage=1)
+  
+
+```java
+//매개변수는 내가 현재 트리의 어떤 노드에 있는지를 지정해야 한다.
+return-type queens(arguements)
+{
+    if non-promising
+        report failure and return;
+    else if success
+        report answer and return;
+    else
+        visit children recursively;
+}
+```
+
+```java
+//매개변수 레벨은 현재노드의 위치를 표시하고,
+// 1번에서 레벨의 말이어디에 놓였는지를 cols에 표시
+// cols[i] = j는 i번말이 (i행, j열)에 놓였음을 의미함.
+
+int[] cols = new int[N+1];
+boolean queens(int levels)
+{
+    if non-promising
+        report failure and return;
+    else if success
+        report answer and return;
+    else
+        visit children recursively;
+}
+```
+```java
+int[] cols = new int[N+1];
+boolean queens(int levels)
+{
+    if (!promising(level)
+        report false;
+    else if (level==N))
+        report true;
+    else{
+        for(int i=1; i<=N; i++){
+            cols[level+1] = i;
+            if (queens(levle+1))
+                return true;
+        }
+        return false;
+    }
+}
+```
+### Promising Test
+- 이 말들 간에는 충돌이 없음이 보장되어 있음
+- 따라서 마지막에 놓인 말이 이전에 놓인 다른 말들과 충돌하는지 검사하는 것으로 충분
+
+```java
+boolean promising(int level)
+{
+    for (int i=1; i<level; i++){
+        if(cols[i]==cols[level]) //같은 열검사
+            return false;
+        else if (level-i == Math.abs(cols[level]-cols[i]) // 대각선 검사
+            return false;
+    }    
+    return true;
+}
+```
+```java
+int[] cols = new int[N+1];
+boolean queens(int levels)
+{
+    if (!promising(level)
+        report false;
+    else if (level==N))
+        for (int i =1; i<=N; i++)
+            System.out.println("("+i+","+cols[i]+")"));
+        return true;
+    else{
+        for(int i=1; i<=N; i++){
+            cols[level+1] = i;
+            if (queens(levle+1))
+                return true;
+        }
+        return false;
+    }
+}
+```
+
+[관련코드]()
+
+---
+
+## 멱집합(Powerset)
+
+- 임의의 집합의 모든 부분집합을 출력하라!
+
+- {a,b,c,d,e,f}의 모든 부분집합을 나열하려면
+- a를 제외한 {b,c,d,e,f}의 모든 부분집합들을 나열하고
+- {b,c,e,d,f}의 모든 부분집합에 {a}를 추가한 집합들을 나열한다.
+- {b,c,e,d,f}의 경우도 유사하다(->Recursion!)
+
+### Powerset
+
+```java
+powerSet(S)
+if S is an empty set
+    print nothing;
+else
+    let t be the first element of S;
+    find all subsets of S-{t} by calling powerSet(S-{t});
+    print the subsets;
+    print teh subsets with adding t;
+
+```
+> 이렇게 하려면 powerSet 함수의 여러개의 집합들을 return해야 한다. How?
+
+```java
+powerSet(P,S)
+if S is an empty set
+    print P;
+else
+    let t be the first element of S;
+    powerSet(P,S-{t});
+    pwoerSet(Pu{t}, S-{t});
+```
+> recursion 함수가 두 개의 집합을 매개변수로 받도록 설계해야 한다.
+> 두 번쨰 집합의 모든 부분집합들에 첫번쨰 집합을 합집합하여 출력한다.
+
+> include라는 boolea n 배열을 통해서 출력할 수 있음
+
+[관련코드]()
+![state](statespace.png)
+
+- 해를 찾기 위해 탐색할 필요가 있는 모든 후보을 포함하는 트리
+- 트리의 모든 노드들을 방문하면 해를 찾을 수 있다.
+- 루트에서 출발하여 체계적으로 모든 노드를 방문하는 절차를 기술한다.
