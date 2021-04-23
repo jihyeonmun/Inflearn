@@ -46,6 +46,7 @@ T(n) = (n-1)+...+1 = O(n<sup>2</sup>)
 
 ## 버블 정렬
 ![주소](bubblesort.gif)
+<br>
 [구현한 코드](https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/bubblesort.java)
 
 - 가장 큰값을 구하기 까지 서로 인접하는 값을 오른차순으로 정렬해가면서
@@ -159,7 +160,7 @@ T(n) = O(nlogn) -> 잘게 쪼개다 보면 log~2~n을 n회차 하게 되서
 ## QuickSort
 ![quick](quick.gif)
 <br>
-[구현한 코드]((https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/QuickquiSort.java)
+[구현한 코드]((https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/QuickSort.java)
 )
 - 분할 : 배열을 다음과 같은 조건이 만족되도록 두 부분으로 나눈다. 
 elements in lower parts <= elements in upper parts
