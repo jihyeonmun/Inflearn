@@ -72,8 +72,8 @@ T(n) = (n-1)+~+1 = O(n^2^)
 ## 삽입정렬
 ![insertion](insertion.gif)
 <br>
-[구현한 코드]((https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/InsertionSort.java)
-)
+[구현한 코드](https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/InsertionSort.java)
+
 -첫 두개부터 정렬하고 정렬된 것에 하나하나씩 추가하면서 정렬 과정을 반복하여 전체를 정렬하는 과정이다.
 1) item to insert
 2) copy the item to tmp
