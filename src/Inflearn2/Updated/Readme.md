@@ -21,7 +21,9 @@
 
 
 ## 선택 정렬
-![selection](https://t1.daumcdn.net/cfile/tistory/2321F54B557A7AA845)
+![selection](selectionsort.gif)
+<br>
+[구현한 코드-선택정렬](https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/SelectionSort.java)
 - 가장 큰값을 바꾸고, 마지막 자리와 바꾼다.
 - 계속해서 반복하다보면, 전체적으로 오른차순으로 정렬하게 된다.
 
@@ -43,6 +45,9 @@ selectionSort(A[], n){
 T(n) = (n-1)+...+1 = O(n<sup>2</sup>)
 
 ## 버블 정렬
+![주소](bubblesort.gif)
+[구현한 코드](https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/bubblesort.java)
+
 - 가장 큰값을 구하기 까지 서로 인접하는 값을 오른차순으로 정렬해가면서
 끝까지 간다는데 선택정렬과 다른점이 있다.(한 턴에서 바꾸는 작업을 상당히 많이함!)
   
@@ -64,8 +69,10 @@ bubbleSort(A[],n)
 T(n) = (n-1)+~+1 = O(n^2^)
 
 ## 삽입정렬
-
-
+![insertion](insertion.gif)
+<br>
+[구현한 코드]((https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/InsertionSort.java)
+)
 -첫 두개부터 정렬하고 정렬된 것에 하나하나씩 추가하면서 정렬 과정을 반복하여 전체를 정렬하는 과정이다.
 1) item to insert
 2) copy the item to tmp
@@ -102,7 +109,10 @@ T(n) = (n-1)+~+1 = O(n^2^)
 - 합병  : 작은 문제의 해를 합하여 원래 문제에 대한 해를 구함.
 
 ## 합병 정렬
-
+![merge](merge.gif)
+<br>
+[구현한 코드]((https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/MergeSort.java)
+)
 - 데이터가 저장된 배열을 절반으로 나눔
 - 각각을 순환적으로 정렬
 - 정렬된 두 개의 배열을 합쳐 전체를 정렬
@@ -147,7 +157,10 @@ void merge(int data[], int p, int q, int r){
 T(n) = O(nlogn) -> 잘게 쪼개다 보면 log~2~n을 n회차 하게 되서
 
 ## QuickSort
-
+![quick](quick.gif)
+<br>
+[구현한 코드]((https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/QuickquiSort.java)
+)
 - 분할 : 배열을 다음과 같은 조건이 만족되도록 두 부분으로 나눈다. 
 elements in lower parts <= elements in upper parts
 - 정복 : 각 부분을 순환적으로 정렬한다.
@@ -231,6 +244,10 @@ p(I)= 1/n!
 ---
 ## Heap과 Heapsort
 
+![heap](heap.gif)
+<br>
+[구현한 코드]((https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/HeapSort.java)
+)
 ### Heapsort
 - 최악의 경우 시간복잡도 O(nlog~2~n)
 - Sorts in place - 추가 배열 불필요
@@ -442,6 +459,13 @@ No. 대부분의 경우 정렬할 key 값들은 레코드의 일부분이기 때
 --- 
 
 ## Radix Sort
+![radix1](radix1.gif)
+![radix2](radix2.gif)
+<br>
+[구현한 코드]((https://github.com/jihyeonmun/codingtest/blob/master/src/Inflearn2/Updated/RadixSort.java)
+)
+
+
 - n개의 d자리 정수들
 - 가장 낮은 자리수부터 정렬
 
