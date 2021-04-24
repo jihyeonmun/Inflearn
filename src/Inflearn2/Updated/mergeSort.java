@@ -6,7 +6,6 @@ public class mergeSort {
         mergeSort(arr, 0, arr.length - 1);
     }
     public static int[] sorted = new int[30];
-
     public static void mergeSort(int[] arr, int m, int n) {
         int middle;
         if (m < n) {
@@ -16,14 +15,11 @@ public class mergeSort {
             merge(arr, m, middle, n);
         }
     }
-
     public static void merge(int[] arr, int m, int middle, int n) {
         int i, j, k, t;
-
         i = m;
         j = middle + 1;
         k = m;
-
         while (i <= middle && j <= n) {
             if (arr[i] <= arr[j])
                 sorted[k] = arr[i++];
@@ -31,7 +27,6 @@ public class mergeSort {
                 sorted[k] = arr[j++];
             k++;
         }
-
         if (i > middle) {
             for (t = j; t <= n; t++, k++)
                 sorted[k] = arr[t];
@@ -39,10 +34,8 @@ public class mergeSort {
             for (t = i; t <= middle; t++, k++)
                 sorted[k] = arr[t];
         }
-
         for (t = m; t <= n; t++)
             arr[t] = sorted[t];
-
         System.out.println("\n 합병 정렬 >> ");
         SelectionSort.printArr(arr);
 

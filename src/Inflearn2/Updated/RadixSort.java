@@ -34,7 +34,6 @@ public class RadixSort {
                 while ((value = counter[j].poll()) != null) {
                     array[pos++] = value;
                 }
-
             }
             System.out.println("기수 정렬 " + (i + 1) + " 단계:");
             SelectionSort.printArr(array);

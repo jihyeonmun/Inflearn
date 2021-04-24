@@ -1,35 +1,35 @@
 package Inflearn2.Updated;
-
+/*메소드 3개로 구성된다.
+1) 기본적으로 바꿔주는 swap(두 인덱스를 기반으로 값을 교환)
+2) 행렬 출력
+3) 선택정렬(첫 인덱스부터 최소 값으로 교환하여 하나하나 채워나간다.)
+* */
 public class SelectionSort {
-    public static void main(String[] args) {
-        int [] arr = {69, 10, 30, 2, 16, 8}; // 정렬 전 배열
-        SelectionSort.selectionSort(arr);
+    public static void main(String[] args){
+        int[] arr = {3,4,12, 1,6,9, 23,15};
+        selectionSort(arr);
     }
-    public static void selectionSort(int [] arr) {
-        int min = 0; // 최저 값을 담을 요소
-
-        for (int i = 0; i < arr.length - 1; i++) {
-            min = i; // 첫번째 요소를 선택
-
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[min]) // 첫번째 요소와 가장 적은 값을 찾는 비교 연산
+    static void selectionSort(int[] arr){
+        int min = 0;
+        for (int i=0; i<arr.length-1; i++){
+            min = i;
+            for(int j=i+1; j<arr.length; j++){
+                if(arr[j]<arr[min])
                     min = j;
             }
-            swap(arr, min, i);
-            System.out.println("선택 정렬 " + (i + 1) + " 단계: ");
+            swap(arr, i,min);
+            System.out.println("선택 정렬 "+(i+1)+" 단계 : ");
             printArr(arr);
         }
     }
-
-    public static void swap(int [] arr, int i, int j) {
+    static void swap(int[] arr, int i,int j){
         int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
+        arr[i]=arr[j];
+        arr[j]=tmp;
     }
-
-    public static void printArr(int [] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
+    static void printArr(int[] arr){
+        for(int i=0; i<arr.length; i++){
+            System.out.print(arr[i]+" ");
         }
         System.out.println();
     }
