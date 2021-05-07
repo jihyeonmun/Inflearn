@@ -132,3 +132,15 @@ console.log(solution(str));
 ```js
 let answer = Array.from({ length: n }, () => 1);
 ```
+
+#### 거꾸로한 것과 실제 글자 같은지 판별
+
+```js
+s.split("").reverse().join("") != s;
+```
+
+#### 전역으로 변환시키기!
+
+```js
+s = s.toLowerCase().replace(/[^a-z]/g, "");
+```
