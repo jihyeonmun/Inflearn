@@ -122,3 +122,13 @@ function solution(s) {
 let str = ["good", "time", "good", "time", "student"];
 console.log(solution(str));
 ```
+
+---
+
+# 1,2차원 배열 탐색
+
+#### 1로찬 배열 만들기
+
+```js
+let answer = Array.from({ length: n }, () => 1);
+```
