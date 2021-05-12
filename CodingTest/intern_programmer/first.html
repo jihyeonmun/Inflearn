@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(progresses, speeds) {
+                var answer = [];
+                //전형적인 stack 문제라는 생각이 든다. 
+                let day = [];
+                let diff;
+                for (let i=0; i<progresses.length; i++){
+                    diff = Math.ceil((100-progresses[i])/speeds[i]);
+                    day.push(diff);
+                }
+                let max = day[0];
+                let output = 1;
+                for (let i =1; i<day.length; i++){
+                    if(max<day[i]) {
+                        answer.push(output);
+                        max = day[i];
+                        output = 1;
+                    } else{
+                        output++;
+                    }
+                    if (i==day.length-1){
+                        answer.push(output);
+                    }
+                }
+                return answer;
+            }
+
+            let progresses = [93,30,55];
+            let speeds = [1,30,5];
+            console.log(solution(progresses, speeds));
+            progresses = [95,90,99,99,80,99];
+            speeds = [1,1,1,1,1,1];
+            console.log(solution(progresses, speeds));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, k, cmd) {
+                /*
+                k는 처음에 선택된 행의 위치를 나타냄.
+                U X 현재 선택된 행에서 X 칸 위에 있는 행을 선택
+                D X 현재 선택된 행에서 X 칸 아래로 있는 행을 선택
+                C 현재 선택된 행을 삭제한 후 바로 아래행을 선택함
+                Z 가장 최근에 삭제된 행을 원래대로 복구함.(단, 현재 선택된 행은 바뀌지 않음)
+                최종적으로 삭제된 것과 삭제되지 않은 것을 비교 하게 된다.
+                초기에 숫자로 단순히 넣어두고,
+                인덱스 번호로 포인터 활용하고, 복원시키는 경우 넣고 정렬한다.
+                */
+                var answer = "";
+                let del = [];
+                let stack = Array.from({ length: n }, (v, i) => i+1);
+                for(let i=0; i<cmd.length; i++){
+                    if(cmd[i][0]==='D'){
+                        k+=parseInt(cmd[i][2]);
+                    }else if(cmd[i][0]==='C'){
+                        del.push(stack[k]); // 기억하기
+                        stack[k]= n+1; // 일단 뒤로 빼기
+                        stack = Array.from(stack).sort((a, b) => a - b); //일단 뒤로 빼기
+                    }else if(cmd[i][0]==='U'){
+                        k-=parseInt(cmd[i][2]);
+                    }else{
+                        stack[n-1]=del.pop(); //최근 삭제 값 넣어주고 
+                        stack = Array.from(stack).sort((a, b) => a - b); //정렬, k는 그대로 k이다. 
+                    }
+                }
+                let ori = Array.from({ length: n }, (v, i) => i+1);
+                let i =0, j=0;
+                while(i<stack.length && j<ori.length){
+                    if(ori[i]===stack[j]) {
+                        answer+="O";
+                        i++;
+                        j++;
+                    }
+                    else {
+                        answer+="X";
+                        i++;
+                    }
+                }
+                return answer;
+            }
+            let n = 8;
+            let k = 2;
+            let cmd = ["D 2","C","U 3","C","D 4","C","U 2","Z","Z"];
+            console.log(solution(n,k,cmd));
+        </script>
+    </body>
+</html>
