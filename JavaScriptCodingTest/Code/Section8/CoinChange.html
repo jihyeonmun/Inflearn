@@ -10,8 +10,9 @@
                 let n=arr.length;
                 function DFS(L, sum){
                     if(sum>m) return;
-                    if(L>=answer) return;
+                    if(L>=answer) return; //상당히 중요, 크면 가지 말아야함!
                     if(sum===m){
+                        console.log(L,sum);
                         answer=Math.min(answer, L);
                     }
                     else{
