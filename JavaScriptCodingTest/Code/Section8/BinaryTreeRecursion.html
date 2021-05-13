@@ -7,6 +7,10 @@
         <script>
             function solution(n){
                 let answer="";
+                // 1 //23 // 4567
+                // 전위순회 : 1 2 4 5 3 6 7 부 왼 오
+                // 중위순회 : 4 2 5 1 6 3 7 왼 부 오
+                // 후위순회 : 4 5 2 6 7 3 1 왼 오 부
                 function DFS(v){
                     if(v>7) return;
                     else{
@@ -18,8 +22,36 @@
                 DFS(n);
                 return answer;
             }
+            function solutionMid(n){
+                let answer="";
+                function DFSmid(v){
+                    if(v>7) return;
+                    else{
+                        DFSmid(v*2);
+                        answer+=(v+' ');
+                        DFSmid(v*2+1);
+                    }
+                }
+                DFSmid(n);
+                return answer;
+            }
+            function solutionPost(n){
+                let answer="";
+                function DFSpost(v){
+                    if(v>7) return;
+                    else{
+                        DFSpost(v*2);
+                        DFSpost(v*2+1);
+                        answer+=(v+' ');
+                    }
+                }
+                DFSpost(n);
+                return answer;
+            }
 
             console.log(solution(1));
+            console.log(solutionMid(1));
+            console.log(solutionPost(1));
         </script>
     </body>
 </html>
