@@ -5,6 +5,10 @@
     </head>
     <body>
         <script>
+            //결국 이것은 피보나치 수열이랑 똑같다.
+            //한칸 올라가는 조합, 두칸 올라가는 조합이 합쳐지면
+            // 세칸 올라가는 조합이 탄생. 단계별로 올라가는 느낌! 
+            // 여기서는 점화식이라고 한다.
             function solution(n){  
                 let answer=0;
                 let dy=Array.from({length:n+1}, ()=>0);
